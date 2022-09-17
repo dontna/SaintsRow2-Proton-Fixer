@@ -1,0 +1,140 @@
+This document will help you utilise the scripts to the fullest extent, and also guide you if you are stuck.
+
+=== BEFORE WE START ===
+	This script will automatically download the following things:
+	
+	1. DXVK - Used to make our game run with Vulkan, which fixes A LOT of the stuttering problems and allows for a more flawless gameplay experience. Without it performance is aweful.
+		Link: https://github.com/doitsujin/dxvk/releases/tag/v1.10.3
+	
+	These sites are where the script will download the files from. If you are unhappy with the script downloading things automatically, please do not use the script.
+
+=== NEED HELP / REPORTING BUGS ===
+	If you need any help or run into any issues, please feel free to reach out via github here: https://github.com/dontna
+	Please be advised, if something you need help with is already covered in this document; no help will be offered so please follow along if you are not confident with Proton tinkering.
+
+=== BEFORE RUNNING ANY SCRIPTS ===
+	Before you run the script you MUST do the following things.
+	
+	>> RUN THE GAME AT LEAST ONCE <<
+	The script requires you to run the game with Proton, all you have to do is get into the main menu then back out. 
+	If you have done this before, or for those who know how to do this, skip down to the SWITCH PROTON VERSION section, just below this one.
+	
+	For anyone else, who may be confused on how to run a game with Proton, you can do the following.
+
+	1. Open Steam, and login if needed.
+	2. At the top left you will see some small text saying things like: Steam, View, Friends ECT. Click on the text that says 'Steam'.
+	3. In the little sub-menu that has opened, click on 'Settings'.
+	4. In the new window, you will see a menu down the left hand side with options such as: Account, Family, In-Game ECT. At the end of the menu it will say 'Steam Play', click on this.
+	5. On the right hand side of the same window, you will see 2 sections; one titled "Steam Play Settings" and the other "Advanced". Under the first section, click on the checkbox that says "Enable Steam Play for supported titles"
+	6. In the next section, titled "Advanced", click on the checkbox that says "Enable Steam Play for all other titles".
+	7. Just below the checkbox you have just clicked on, there is a dropdown menu. Click on it and click on the option that says 'Proton Experimental'.
+	8. Once you have done all of these, click the 'Ok' button in the bottom right.
+	9. Restart Steam. You can do this by clicking on the 'Steam' text you clicked on before and choosing the option 'Exit'. Once it has closed down Steam, just open it back up; and login if needed.
+	10. Goto your Steam Library and find 'Saints Row 2', and click. Then click the big bright 'Play' button.
+	11. Once your game has launched, which may take some time the first time, just exit the game as normal.
+
+	>> SWITCH PROTON VERSION <<
+	To get the most stable frames, I advise everyone to use a specific Proton version; this version is 'Proton 5.0-10'. The following steps will show you how to force the game to use this version.
+	Note: To anyone who already knows how to do this, just remember to run the game again; so that Proton can update the Prefix. If you don't do this, the script may not take full effect.
+
+	1. Open Steam, and login if needed.
+	2. Goto your Steam Library and find 'Saints Row 2', and right click on it.
+	3. After right clicking, in the little menu click on 'Properties'
+	4. In the new window that opens up, on the left side you will see options such as: General, Compatability, Updates ECT. Click on Compatability.
+	5. On the right hand side, of the window, you will see a little checkbox that says "Force the use of a specific Steam Play compatability tool". Click on the checkbox, if it isn't already checked.
+	6. In the dropdown menu just below, you need to click and choose "Proton 5.0-10".
+	7. Once you have done that, you can click the little 'X' in the top right of that same window to exit back to your library.
+	8. Click on 'Saints Row 2' in your Steam Library, and then click the big bright 'Play' button.
+	9. Once your game has launched, which may take some time the first time, just exit the game as normal.
+
+	You're all done, no more setup needs to be done; you are ready to run the script.
+
+	Note: If the audio has stopped working in game, don't worry too much as we can fix that later.
+
+=== RUNNING THE SCRIPT ===
+	This section will teach you how to run the 'saintsrow2_fixer.sh' script. 
+	For a tutorial on how to run 'resolution_changer.sh' please see the 'FIXING RESOLUTION' section of this document.
+	For a tutorial on how  to run 'audio_fixer.sh' please see the 'FIXING AUDIO' section of this document.
+	
+	Note: Please run the main script before using these other ones. Failure to do so may hinder the helpfulness of this script.
+
+	Before you follow the steps below, please ensure you have run the game at least 1 time with proton version "Proton 5.0-10".
+	
+
+	>> FINDING YOUR PREFIX <<
+	The script will require a path to the prefix that Proton created automatically. If you already know how to get this, please move on to the 'FINDING YOUR GAME DIRECTORY' sub-section, just below.
+	For anyone else, please follow these steps.
+
+	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.steam/steam/"
+	2. Once you have found this, CD into the following folders: "steamapps/compatdata/9480/pfx/"
+	
+	This will be the path you use in the script, so for this example my prefix path would be: "/home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/"
+	
+	If your 'compatdata' directory does NOT contain '9480', it means you have failed to run the game with Proton. 
+	Please see section 'BEFORE RUNNING ANY SCRIPTS' section at the top of this document, for more help.
+
+
+	>> FINDING YOUR GAME DIRECTORY <<
+	Now you have found your prefix path, you will need to get the path for your Saints Row 2 game directory.
+	If you already know how to do this, you can move onto the 'LETS RUN THE SCRIPT' sub-section.
+
+	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.steam/steam/"
+	2. Once you have found this, CD into the following folders: "steamapps/common/Saints Row 2/"
+
+	This will be the path you use in the script, so for this example my game directory path would be: "/home/dontna/.steam/steam/steamapps/common/Saints Row 2/"
+
+
+	>> LETS RUN THE SCRIPT <<
+	Now that you've found your PREFIX PATH and GAME DIRECTORY PATH, you're ready to run the script.
+
+	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded.
+	2. Run the script passing in the PREFIX PATH then the GAME DIRECTORY PATH. It will look something like this: ./saintsrow2_fixer.sh [PATH_TO_PREFIX] [PATH_TO_GAME_DIRECTORY]
+
+	A practical example, using the paths from above, would look like: ./saintsrow2_fixer.sh /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/ "/home/dontna/.steam/steam/steamapps/common/Saints Row 2/"
+	
+	The script should run, making the necessary tweaks to get your game running better.
+
+	Note: After running the game, please go into the game settings > display and set "Dynamic Lighting" to "Simple" or "Off". This will improve performance drastically for most.
+
+=== FIXING RESOLUTION ===
+	Saints Row 2 is very particular about its resolutions, so much so that for some users it doesn't even allow them to change it properly; that is what this script is here to do.
+	
+	Note: There is a windows program (.exe) that does this, using this fix through Wine did not work for me so I made my own version for us on Linux.
+
+	This script requires you to have found your PREFIX path, which will be passed in as an argument. If you haven't done this, check the 'RUNNING THE SCRIPT' section above.
+
+	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded.
+	2. Run the script passing in the arguments: [RESOLUTION_WIDTH] [RESOLUTION_HEIGHT] [PATH_TO_PREFIX] in that order.
+
+	
+	A practical example, using the paths from above, would look like: ./resolution_fixer.sh 1920 1080 /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/
+	This would set the game resolution to 1920x1080
+
+	Another example, would be: ./resolution_fixer.sh 3440 1440 /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/
+	This would set the game resolution to 3440x1440
+
+	Note: please make sure to specify the arguments in this order, otherwise the game will reset your resolution settings to the defaults.
+
+=== FIXING AUDIO ===
+	When we set our game to use Proton version 5.0-10, your in-game audio may have disappeared. This is a bug some people get when making this tweak, here's  how to fix it.
+
+	Note: Only run this fix if your audio is not working. If your game works fine, you need not use this fix.
+	
+	This script requires you to have found your PREFIX path, which will be passed in as an argument. If you haven't done this, check the 'RUNNING THE SCRIPT' section above.
+
+	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded, from there CD into the 'ExtraScripts' folder.
+	2. Run the script passing in the arguments: [PATH_TO_PREFIX]
+	
+	A practical example, using the paths from above, would look like: ./audio_fixer.sh /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/
+
+	Audio should now be fixed.
+
+	Note: In some cases you may have to Restart Steam, or even Reboot the computer. I have no idea why, but this was the case for me and one other friend.
+
+=== SOME THINGS TO TAKE NOTE OF ===
+	This fix isn't a magic way to fix the unoptimised PC port that is Saints Row 2. All this script does is apply fixes that allow for a more playable frame rates.
+	Even after these fixes the game WILL still drop frames, however these fixes made it so I could play the game without too much hassle.
+
+	If you want to improve stability, you can download a mod called "Gentlemen of the Row"; which not only fixes stability but also adds lots of new stuff.
+	I didn't add it in this script, since I enjoy playing the game vanillia the first time. 
+	If you don't care about vanillia, then find out more about it here: https://www.saintsrowmods.com/forum/threads/gentlemen-of-the-row.24/
