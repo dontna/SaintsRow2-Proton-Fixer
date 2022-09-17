@@ -25,23 +25,26 @@ GAME_DIRECTORY_PATH=$2
 
 # Download Vulkan
 mkdir $(pwd)/Downloads/
-cd Downloads/
+cd $(pwd)/Downloads/
 wget https://github.com/doitsujin/dxvk/releases/download/v1.10.3/dxvk-1.10.3.tar.gz -O $(pwd)/dxvk-1.10.3.tar.gz
 tar -xvzf dxvk-1.10.3.tar.gz
 rm "dxvk-1.10.3.tar.gz"
 
 # Install Vulkan
-cd ../dxvk-1.10.3/
+cd dxvk-1.10.3
 echo "Running DXVK Vulkan Install Script..."
 WINEPREFIX="$PREFIX_PATH" ./setup_dxvk.sh install
+cd $(pwd)/x32/
 mv --force d3d9.dll dxgi.dll "$GAME_DIRECTORY_PATH"
+echo "moving d3d9 and dxgi to '$GAME_DIRECTORY_PATH"
+exit 0
 
 # Create dxvk.conf
 cd "$GAME_DIRECTORY_PATH"
 touch "dxvk.conf"
 echo -en "dxgi.maxFrameLatency = 1\nd3d9.maxFrameLatency = 1\n\n#Caps game at 60FPS, rasing the limit above 60 can cause issues\ndxgi.maxFrameRate = 60\nd3d9.maxFrameRate = 60\n\nd3d9.textureMemory = 0" >> dxvk.conf
 
-clear
+
 echo "Script is complete, please open up the game with Steam and test it."
 echo "If you face an issue, and it is not in the 'help.txt', please let me know here: https://github.com/dontna"
 echo ""

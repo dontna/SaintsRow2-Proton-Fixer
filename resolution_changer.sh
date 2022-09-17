@@ -20,12 +20,6 @@ if [[ ${#1} -gt 4 || ${#2} -gt 4 ]]; then
 	exit 1
 fi
 
-if ! [[ $(ls "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/" | grep settings.dat) || $(ls "$3/drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/" | grep settings.dat) ]]; then
-	echo "Cannot find 'settings.dat' in \"$3/drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/\""
-	echo "Are you sure this is your Saints Row 2 prefix?"
-	exit 1
-fi
-
 ### START OF THE ACTUAL SCRIPT ###
 SCREEN_W=$1
 SCREEN_H=$2
@@ -35,10 +29,16 @@ SCREEN_H_HEX=0"$(printf "%x" $SCREEN_H)"
 
 PATH_TO_PREFIX=$3
 
+if ! [[ $(ls "$3drive_c/users/steamuser/") ]]; then
+	PATH_TO_PREFIX="$3/"
+fi
+
 if ! [[ $(cd "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
-	cd "$3/drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/"
+	PATH_TO_SETTINGS="$3drive_c/users/steamuser/Local Settings/Application Data/THQ/Saints Row 2/"
+elif [[ $(cd "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
+	PATH_TO_SETTINGS="$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/"
 else
-	cd "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/"
+	echo "Cannot locate 'settings.dat', are you sure '$3' is your prefix path?"
 fi
 
 function little_endian_converter() {
@@ -87,5 +87,7 @@ function little_endian_converter() {
 
 }	
 
+cd "$PATH_TO_SETTINGS"
 little_endian_converter $SCREEN_W_HEX $SCREEN_H_HEX
+clear
 echo "Script has sucessfully set your resolution to '$SCREEN_W x $SCREEN_H'"
