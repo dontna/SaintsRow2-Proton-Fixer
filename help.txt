@@ -3,7 +3,7 @@ This document will help you utilise the scripts to the fullest extent, and also 
 === BEFORE WE START ===
 	This script will automatically download the following things:
 	
-	1. DXVK - Used to make our game run with Vulkan, which fixes A LOT of the stuttering problems and allows for a more flawless gameplay experience. Without it performance is aweful.
+	1. DXVK - Used to make our game run with Vulkan, which fixes A LOT of the stuttering problems and allows for a more flawless gameplay experience. Without it performance is awful.
 		Link: https://github.com/doitsujin/dxvk/releases/tag/v1.10.3
 	
 	These sites are where the script will download the files from. If you are unhappy with the script downloading things automatically, please do not use the script.
@@ -34,7 +34,7 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	11. Once your game has launched, which may take some time the first time, just exit the game as normal.
 
 	>> SWITCH PROTON VERSION <<
-	To get the most stable frames, I advise everyone to use a specific Proton version; this version is 'Proton 5.0-10'. The following steps will show you how to force the game to use this version.
+	To get the most stable frame rates, I advise everyone to use a specific Proton version; this version is 'Proton 5.0-10'. The following steps will show you how to force the game to use this version.
 	Note: To anyone who already knows how to do this, just remember to run the game again; so that Proton can update the Prefix. If you don't do this, the script may not take full effect.
 
 	1. Open Steam, and login if needed.
