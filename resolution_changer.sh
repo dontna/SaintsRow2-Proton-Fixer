@@ -5,7 +5,7 @@ if [[ $1 == "--help" || $1 == "-h" ]]; then
 	echo "Script usage: $0 [RESOLUTION_WIDTH] [RESOLUTION_HEIGHT] [PATH_TO_PREFIX]"
 	echo ""
 	echo "Realistic Usage"
-	echo "$0 3440 1440 /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/"
+	echo "$0 3440 1440 home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/"
 	exit 0
 fi
 
@@ -33,28 +33,25 @@ if ! [[ $(ls "$3drive_c/users/steamuser/") ]]; then
 	PATH_TO_PREFIX="$3/"
 fi
 
-if ! [[ $(cd "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
+# Check to see if the settings folder is located in AppData or Local Settings.
+if ! [[ $(ls "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
 	PATH_TO_SETTINGS="$3drive_c/users/steamuser/Local Settings/Application Data/THQ/Saints Row 2/"
-elif [[ $(cd "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
+elif [[ $(ls "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
 	PATH_TO_SETTINGS="$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/"
 else
 	echo "Cannot locate 'settings.dat', are you sure '$3' is your prefix path?"
+	exit 1
 fi
 
 function little_endian_converter() {
-	## Yes this section contains 2 while loops that do basically the same thing. I know its poor code, but I just couldn't find another way to make it work. ##
-	## Honestly, if you have an idea; PLEASE HELP... OH GOD HELP... THIS TOOK ME 5 HOURS and in that time I drank more Tea than any 1 human should ##
-	## If any future employers are reading this... pretend you didn't see that? Thank you. I do very well under stressful situations, promise. ##
-
+	# Function that takes HEX input and converts it to little endian. It also overwrites the old bytes, in 'settings.dat', with the new little endian hex.
 	CHAR_LENGTH=${#1}
-	CHAR_LENGTH2=${#2}
 
 	FIRST_SECTION=""
 	SECOND_SECTION=""
 
 	SECOND_LOOP=0
 
-	# Little-Endian W
 	while [ $CHAR_LENGTH -gt 0 ]; do
 		CHAR_LENGTH=$[$CHAR_LENGTH-2]
 
@@ -67,27 +64,13 @@ function little_endian_converter() {
 		fi
 	done
 	
-	echo -en "\x$FIRST_SECTION\x$SECOND_SECTION\\" | dd of=settings.dat bs=1 seek=60 count=2 conv=notrunc status=none
-
-	# Little-Endian H
-	while [ $CHAR_LENGTH2 -gt 0 ]; do
-		CHAR_LENGTH2=$[$CHAR_LENGTH2-2]
-
-		if ! [[ $SECOND_LOOP == 1 ]]; then
-			FIRST_SECTION="$(echo -n ${2:$CHAR_LENGTH2:2})"
-			SECOND_LOOP=1
-		else
-			SECOND_SECTION="$(echo -n ${2:$CHAR_LENGTH2:2})"
-			SECOND_LOOP=0
-		fi
-
-	done
-
-	echo -en "\x$FIRST_SECTION\x$SECOND_SECTION\\" | dd of=settings.dat bs=1 seek=64 count=2 conv=notrunc status=none
-
+	echo -en "\x$FIRST_SECTION\x$SECOND_SECTION\\" | dd of=settings.dat bs=1 seek=$2 count=2 conv=notrunc status=none
 }	
 
 cd "$PATH_TO_SETTINGS"
-little_endian_converter $SCREEN_W_HEX $SCREEN_H_HEX
+
+little_endian_converter $SCREEN_W_HEX 60
+little_endian_converter $SCREEN_H_HEX 64
+
 clear
 echo "Script has sucessfully set your resolution to '$SCREEN_W x $SCREEN_H'"
