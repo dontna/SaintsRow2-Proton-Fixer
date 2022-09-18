@@ -65,10 +65,10 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	The script will require a path to the prefix that Proton created automatically. If you already know how to get this, please move on to the 'FINDING YOUR GAME DIRECTORY' sub-section, just below.
 	For anyone else, please follow these steps.
 
-	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.steam/steam/"
+	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.local/share/Steam/"
 	2. Once you have found this, CD into the following folders: "steamapps/compatdata/9480/pfx/"
 	
-	This will be the path you use in the script, so for this example my prefix path would be: "/home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/"
+	This will be the path you use in the script, so for this example my prefix path would be: "/home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/"
 	
 	If your 'compatdata' directory does NOT contain '9480', it means you have failed to run the game with Proton. 
 	Please see section 'BEFORE RUNNING ANY SCRIPTS' section at the top of this document, for more help.
@@ -78,10 +78,10 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	Now you have found your prefix path, you will need to get the path for your Saints Row 2 game directory.
 	If you already know how to do this, you can move onto the 'LETS RUN THE SCRIPT' sub-section.
 
-	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.steam/steam/"
+	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.local/share/Steam/"
 	2. Once you have found this, CD into the following folders: "steamapps/common/Saints Row 2/"
 
-	This will be the path you use in the script, so for this example my game directory path would be: "/home/dontna/.steam/steam/steamapps/common/Saints Row 2/"
+	This will be the path you use in the script, so for this example my game directory path would be: "/home/dontna/.local/share/Steam/steamapps/common/Saints Row 2/"
 
 
 	>> LETS RUN THE SCRIPT <<
@@ -90,7 +90,7 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded.
 	2. Run the script passing in the PREFIX PATH then the GAME DIRECTORY PATH. It will look something like this: ./saintsrow2_fixer.sh [PATH_TO_PREFIX] [PATH_TO_GAME_DIRECTORY]
 
-	A practical example, using the paths from above, would look like: ./saintsrow2_fixer.sh /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/ "/home/dontna/.steam/steam/steamapps/common/Saints Row 2/"
+	A practical example, using the paths from above, would look like: ./saintsrow2_fixer.sh /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/ "/home/dontna/.local/share/Steam/steamapps/common/Saints Row 2/"
 	
 	The script should run, making the necessary tweaks to get your game running better.
 
@@ -107,10 +107,10 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	2. Run the script passing in the arguments: [RESOLUTION_WIDTH] [RESOLUTION_HEIGHT] [PATH_TO_PREFIX] in that order.
 
 	
-	A practical example, using the paths from above, would look like: ./resolution_fixer.sh 1920 1080 /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/
+	A practical example, using the paths from above, would look like: ./resolution_fixer.sh 1920 1080 /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/
 	This would set the game resolution to 1920x1080
 
-	Another example, would be: ./resolution_fixer.sh 3440 1440 /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/
+	Another example, would be: ./resolution_fixer.sh 3440 1440 /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/
 	This would set the game resolution to 3440x1440
 
 	Note: please make sure to specify the arguments in this order, otherwise the game will reset your resolution settings to the defaults.
@@ -125,7 +125,7 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded, from there CD into the 'ExtraScripts' folder.
 	2. Run the script passing in the arguments: [PATH_TO_PREFIX]
 	
-	A practical example, using the paths from above, would look like: ./audio_fixer.sh /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/
+	A practical example, using the paths from above, would look like: ./audio_fixer.sh /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/
 
 	Audio should now be fixed.
 
