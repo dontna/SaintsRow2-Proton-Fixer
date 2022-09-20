@@ -27,12 +27,6 @@ SCREEN_H=$2
 SCREEN_W_HEX=0"$(printf "%x" $SCREEN_W)"
 SCREEN_H_HEX=0"$(printf "%x" $SCREEN_H)"
 
-PATH_TO_PREFIX=$3
-
-if ! [[ $(ls "$3drive_c/users/steamuser/") ]]; then
-	PATH_TO_PREFIX="$3/"
-fi
-
 # Check to see if the settings folder is located in AppData or Local Settings.
 if ! [[ $(ls "$3drive_c/users/steamuser/AppData/Local/THQ/Saints Row 2/") ]]; then
 	PATH_TO_SETTINGS="$3drive_c/users/steamuser/Local Settings/Application Data/THQ/Saints Row 2/"
