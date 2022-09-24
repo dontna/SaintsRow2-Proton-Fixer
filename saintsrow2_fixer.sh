@@ -42,7 +42,7 @@ exit 0
 # Create dxvk.conf
 cd "$GAME_DIRECTORY_PATH"
 touch "dxvk.conf"
-echo -en "dxgi.maxFrameLatency = 1\nd3d9.maxFrameLatency = 1\n\n#Caps game at 60FPS, rasing the limit above 60 can cause issues\ndxgi.maxFrameRate = 60\nd3d9.maxFrameRate = 60\n\nd3d9.textureMemory = 0" >> dxvk.conf
+echo -en "dxgi.maxFrameLatency = 1\nd3d9.maxFrameLatency = 1\n\n#Caps game at 60FPS, rasing the limit above 60 can cause issues\ndxgi.maxFrameRate = 60\nd3d9.maxFrameRate = 60" >> dxvk.conf
 
 
 echo "Script is complete, please open up the game with Steam and test it."
