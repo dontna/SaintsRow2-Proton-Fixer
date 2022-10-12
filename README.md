@@ -37,7 +37,6 @@ If you still have any concerns, please do not use the script.
 # Need help or have a bug to report?
 If you need help, and you cannot find the solution in the 'help.txt' document, feel free to message me and I will be happy to help! Same goes for any bug reports.
 
-# If you wanna Fork me
-Firstly, thank you so much for the opportunity. Secondly, Yes. Fork away.
+# Forking My Projects?
 
-If you want to Fork my projects, please go ahead. Add any features you want or remove them, I don't really mind. You aren't required to give me credit, but can if you feel the need to!
+All of my projects you can fork and utilise the code however you want. You don't need to give me credit, but can do if you would like.
