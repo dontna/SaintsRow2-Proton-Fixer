@@ -10,18 +10,17 @@ The main script applies the following fixes:
 It also creates a custom config file for Vulkan with specific tweaks, such as capping the game at 60 FPS, which will allow the game to run that bit smoother.
 
 Aside from the main script I have also created two additional scripts for your convenience. These are:
-* **resolution_changer.sh** - Fixes issues with setting resolutions in game, but can also be used to force the game to render resolutions that aren't natively supported. This allows the game to be more acessible to ultra-wide monitor users.
-* **audio_fixer.sh** - Fixes an issue in which audio not play after switching Proton versions.
+* **resolution_changer.sh** - Fixes issues with setting resolutions in game, but can also be used to force the game to render resolutions that aren't natively supported. This allows the game to be more acessible to ultra-wide monitor users or anyone else that has an abnormal resolution.
+* **audio_fixer.sh** - Fixes an issue in which audio not play after switching Proton versions. [requires winetricks]
 
 # How to use
-1. Locate your Proton Prefix path and Game Directory Path.
-2. Run the script with the path to the prefix we made earlier, followed by your game directory path.
-* Example: `./saintsrow2_fixer.sh /home/dontna/.steam/steam/steamapps/compatdata/9480/pfx/ "/home/dontna/.steam/steam/steamapps/common/Saints Row 2/"`
+Run the script from the terminal, and it will automatically do everything.
+* Example: `./saintsrow2_fixer.sh`
 
 For a more detailed guide, on how to use all of the scripts, please refer to the 'help.txt' documentation. It goes more in-depth than I could here on GitHub.
 
 # Before you use
-You want to use my script? Brilliant! Before you download, I will tell you that this script does download files that are needed to ensure the script does its job. 
+You want to use my script? Brilliant! Before you download, I will tell you that this script does automatically download files that are needed to ensure the script does its job. 
 
 These files are as follows:
 1. DXVK - Which allows the script to force the game to use Vulkan. This is vital to ensuring a smooth game play experience.

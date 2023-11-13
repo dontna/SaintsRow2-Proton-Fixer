@@ -59,39 +59,13 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	Note: Please run the main script before using these other ones. Failure to do so may hinder the helpfulness of this script.
 
 	Before you follow the steps below, please ensure you have run the game at least 1 time with proton version "Proton 5.0-10".
-	
-
-	>> FINDING YOUR PREFIX <<
-	The script will require a path to the prefix that Proton created automatically. If you already know how to get this, please move on to the 'FINDING YOUR GAME DIRECTORY' sub-section, just below.
-	For anyone else, please follow these steps.
-
-	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.local/share/Steam/"
-	2. Once you have found this, CD into the following folders: "steamapps/compatdata/9480/pfx/"
-	
-	This will be the path you use in the script, so for this example my prefix path would be: "/home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/"
-	
-	If your 'compatdata' directory does NOT contain '9480', it means you have failed to run the game with Proton. 
-	Please see section 'BEFORE RUNNING ANY SCRIPTS' section at the top of this document, for more help.
-
-
-	>> FINDING YOUR GAME DIRECTORY <<
-	Now you have found your prefix path, you will need to get the path for your Saints Row 2 game directory.
-	If you already know how to do this, you can move onto the 'LETS RUN THE SCRIPT' sub-section.
-
-	1. Goto your main Steam directory. Unless you have a secondary drive that you store games on, this directory should be located: "/home/YOURUSERNAME/.local/share/Steam/"
-	2. Once you have found this, CD into the following folders: "steamapps/common/Saints Row 2/"
-
-	This will be the path you use in the script, so for this example my game directory path would be: "/home/dontna/.local/share/Steam/steamapps/common/Saints Row 2/"
-
 
 	>> LETS RUN THE SCRIPT <<
-	Now that you've found your PREFIX PATH and GAME DIRECTORY PATH, you're ready to run the script.
+	As of 13th November 2023, you no longer need to manually find anything. The script will do that automatically for you, so long as you have the 'find' command on your distro (which most do).
 
 	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded.
-	2. Run the script passing in the PREFIX PATH then the GAME DIRECTORY PATH. It will look something like this: ./saintsrow2_fixer.sh [PATH_TO_PREFIX] [PATH_TO_GAME_DIRECTORY]
+	2. Run the script, like this: ./saintsrow2_fixer.sh
 
-	A practical example, using the paths from above, would look like: ./saintsrow2_fixer.sh /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/ "/home/dontna/.local/share/Steam/steamapps/common/Saints Row 2/"
-	
 	The script should run, making the necessary tweaks to get your game running better.
 
 	Note: After running the game, please go into the game settings > display and set "Dynamic Lighting" to "Simple" or "Off". This will improve performance drastically for most.
@@ -101,31 +75,29 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	
 	Note: There is a windows program (.exe) that does this, using this fix through Wine did not work for me so I made my own version for us on Linux.
 
-	This script requires you to have found your PREFIX path, which will be passed in as an argument. If you haven't done this, check the 'RUNNING THE SCRIPT' section above.
-
-	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded.
-	2. Run the script passing in the arguments: [RESOLUTION_WIDTH] [RESOLUTION_HEIGHT] [PATH_TO_PREFIX] in that order.
+	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded, then CD into the 'ExtraScripts' folder.
+	2. Run the script passing in the arguments: [RESOLUTION_WIDTH] [RESOLUTION_HEIGHT] in that order. It would look something like: ./resolution_changer [RESOLUTION_WIDTH] [RESOLUTION_HEIGHT]
 
 	
-	A practical example, using the paths from above, would look like: ./resolution_fixer.sh 1920 1080 /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/
+	A practical example, would look like: ./resolution_fixer.sh 1920 1080
 	This would set the game resolution to 1920x1080
 
-	Another example, would be: ./resolution_fixer.sh 3440 1440 /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/
+	Another example, would be: ./resolution_fixer.sh 3440 1440
 	This would set the game resolution to 3440x1440
 
 	Note: please make sure to specify the arguments in this order, otherwise the game will reset your resolution settings to the defaults.
 
 === FIXING AUDIO ===
+	*** ONLY RUN THIS FIX IF YOUR AUDIO IS NOT WORKING. IF YOUR GAME WORKS FINE, YOU DO NOT NEED TO USE THIS FIX ***
+
 	When we set our game to use Proton version 5.0-10, your in-game audio may have disappeared. This is a bug some people get when making this tweak, here's  how to fix it.
 
-	Note: Only run this fix if your audio is not working. If your game works fine, you need not use this fix.
-	
-	This script requires you to have found your PREFIX path, which will be passed in as an argument. If you haven't done this, check the 'RUNNING THE SCRIPT' section above.
+	Note: The script requires you to have 'winetricks' installed, so please do not run the script until you have downloaded this from your package manager.
 
 	1. In a Terminal, CD into the 'SaintsRow-2-Proton-Fixer' folder you downloaded, from there CD into the 'ExtraScripts' folder.
-	2. Run the script passing in the arguments: [PATH_TO_PREFIX]
+	2. Run the script, it would look like: ./audio_fixer.sh
 	
-	A practical example, using the paths from above, would look like: ./audio_fixer.sh /home/dontna/.local/share/Steam/steamapps/compatdata/9480/pfx/
+	A practical example, using the paths from above, would look like: ./audio_fixer.sh
 
 	Audio should now be fixed.
 
@@ -138,3 +110,5 @@ This document will help you utilise the scripts to the fullest extent, and also 
 	If you want to improve stability, you can download a mod called "Gentlemen of the Row"; which not only fixes stability but also adds lots of new stuff.
 	I didn't add it in this script, since I enjoy playing the game vanillia the first time. 
 	If you don't care about vanillia, then find out more about it here: https://www.saintsrowmods.com/forum/threads/gentlemen-of-the-row.24/
+
+	Also check out my Steam guide on how to install it in Linux: https://steamcommunity.com/sharedfiles/filedetails/?id=2864780342
