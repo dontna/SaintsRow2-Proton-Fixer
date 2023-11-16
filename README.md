@@ -1,6 +1,8 @@
 # SaintsRow2-Proton-Fixer
 A set of scripts that allow the user to run Saints Row 2 a little better.
 
+Includes a Resolution Changer for Linux, as well as an audio_fixer in the form of extra scripts!
+
 # What does it do?
 The performance on the PC port of Saints Row 2 is terrible. Without any tweaks my RTX 2080 couldn't push more than 30FPS on high setings. These scripts apply fixes that should boost play-ability.
 
